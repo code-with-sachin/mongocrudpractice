@@ -26,4 +26,11 @@ public class EmployeeController {
     public ResponseEntity<List<Employee>> findAllEmployee() {
         return new ResponseEntity<>(employeeService.findAllEmp(), HttpStatus.OK);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteEmployee(@PathVariable Integer id){
+        employeeService.deleteEmp(id);
+        return new ResponseEntity<>("Employee deleted successfully!", HttpStatus.OK);
+
+    }
 }
